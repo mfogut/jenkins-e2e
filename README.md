@@ -101,3 +101,14 @@ export PATH
   		<user username="manager-jmx" password="password" roles="manager-jmx"/>
   		<user username="deployer" password="password" roles="manager-script"/>
 
+## Deploy .war file to tomcat server
+1. Create New Jenkins job. Maven Project
+2. Source Code Management --> Github link
+3. Build Goals and options --> clean install package
+4. Install Deploy to container plugin to Jenkins
+5. Post-build Actions
+	- WAR/EAR files : **/*.war
+	- Container add Credentials wiht tomcat "deployer" username and password.
+	- Tomcat URL : tomcat server IP address
+6. Build Job
+7. Hit the tomcat server ip_address:8080/webapp (Exit criteria)
