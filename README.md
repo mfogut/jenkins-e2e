@@ -15,12 +15,7 @@ Simple Maven Project
 10. vim .bash_profile
 11. vim ~/.bash_profile
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
-
-# User specific environment and startup programs
+## User specific environment and startup programs
 
 JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.amzn2.0.1.x86_64
 PATH=$PATH:$HOME/bin:$JAVA_HOME
@@ -56,16 +51,9 @@ go to Jenkins Box (Terminal/CMD) and run echo $JAVA_HOME --> Copy the output and
 3. Jenkins box --> cd /opt --> wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 4. tar -xvzf apache-maven-3.6.3-bin.tar.gz
 5. mv apache-maven-3.6.3 maven --> Creates user friendly folder name
-6. cd ~
-7. vi .bash_profile
-# .bash_profile
+6. vim ~/.bash_profile
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
-
-# User specific environment and startup programs
+## User specific environment and startup programs
 
 JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.amzn2.0.1.x86_64
 M2_HOME=/opt/maven
@@ -98,18 +86,18 @@ export PATH
 9. Find and edit context.xml --> find / -name context.xml
 10. In order to open tomcat server to public comment out only local host access -->
 	- vim /opt/tomcat/webapps/host-manager/META-INF/context.xml
-	<!--     <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-	allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+			<!--     <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+			allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
 	- vim /opt/tomcat/webapps/manager/META-INF/context.xml
-	<!--     <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-	allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+			<!--     <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+			allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
 11. Add tomcat users to tomcat-users.xml file --> vim tomcat-users.xml
-	- <role rolename="manager-gui"/>
-  	- <role rolename="manager-jmx"/>
-  	- <role rolename="manager-script"/>
-  	- <role rolename="manager-status"/>
-  	- <user username="admin" password="password" roles="manager-gui,manager-jmx,manager-script,manager-status"/>
-  	- <user username="tomcat" password="password" roles="manager-gui"/>
-  	- <user username="manager-jmx" password="password" roles="manager-jmx"/>
-  	- <user username="deployer" password="password" roles="manager-script"/>
+		<role rolename="manager-gui"/>
+  		<role rolename="manager-jmx"/>
+  		<role rolename="manager-script"/>
+  		<role rolename="manager-status"/>
+  		<user username="admin" password="password" roles="manager-gui,manager-jmx,manager-script,manager-status"/>
+  		<user username="tomcat" password="password" roles="manager-gui"/>
+  		<user username="manager-jmx" password="password" roles="manager-jmx"/>
+  		<user username="deployer" password="password" roles="manager-script"/>
 
