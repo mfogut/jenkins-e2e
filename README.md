@@ -112,3 +112,20 @@ export PATH
 	- Tomcat URL : tomcat server IP address
 6. Build Job
 7. Hit the tomcat server ip_address:8080/webapp (Exit criteria)
+
+# Docker Server
+1. Spin up Ec2 instance
+2. Install Docker --> yum install docker -y
+3. Add dockeradmin user --> useradd dockeradmin
+4. Add dockeradmin user to docker group --> usermod -aG docker dockeradmin
+5. Pull latest tomcat images from dockerhub --> docker pull tomcat
+6. Create docker container with tomcat image --> docker run -d --name tomcat-container -p 8080:8080 tomcat
+
+# Integrate Docker with Jenkins
+1. Install "Publish Over SSH" plugin to Jenkins
+2. Add dockeradmin user to Jenkins --> Manage Jenkins -> Configure System -> Publish over SSH -> SSH Servers Add
+3. On docker server edit sshd_config file --> vim /etc/ssh/sshd_config
+	- PasswordAuthentication yes
+4. Restart sshd service in order to apply changes --> systemctl restart sshd
+5. Build New Job from jenkins.
+6. Hit the tomcat server ip_address:8080/webapp (Exit criteria)
